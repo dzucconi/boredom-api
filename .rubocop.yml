@@ -1,0 +1,29 @@
+require: rubocop-performance
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - tmp/**/*
+    - vendor/**/*
+    - bin/**
+    - spec/**/*
+    - db/schema.rb
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Layout/AlignHash:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Layout/MultilineOperationIndentation:
+  Enabled: false
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
