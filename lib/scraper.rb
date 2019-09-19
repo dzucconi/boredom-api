@@ -21,9 +21,7 @@ IS_QUESTION = lambda { |link|
 module Scraper
   class << self
     def parse(url)
-      URI.parse(url)
-    rescue URI::InvalidURIError
-      URI.parse(CGI.escape(url))
+      Addressable::URI.parse(url)
     end
 
     def process_question(url, agent = Agent.new)
@@ -31,7 +29,7 @@ module Scraper
 
       related_questions = page.links.select(&IS_QUESTION).uniq(&:text)
 
-      question = {
+      {
         body: page.title.gsub(' - Quora', ''),
         slug: page.uri.path.slice(1..),
         url: url,
@@ -43,6 +41,9 @@ module Scraper
           }
         end
       }
+    rescue StandardError
+      puts "Failed <#{url}>"
+      nil
     end
 
     def process_topic(url, agent = Agent.new)
@@ -56,12 +57,19 @@ module Scraper
           url: "#{ROOT_URL}#{parse(link.href).path}"
         }
       end
+    rescue StandardError
+      puts "Failed <#{url}>"
+      []
     end
 
     def seed(topics = TOPICS, agent = Agent.new)
       topics.each do |slug|
-        process_topic("#{ROOT_URL}/topic/#{slug}", agent).each do |topic|
-          root = process_question(topic[:url], agent)
+        next if (seed_questions = process_topic("#{ROOT_URL}/topic/#{slug}", agent)).size.zero?
+
+        seed_questions.each do |seed_question|
+          root = process_question(seed_question[:url], agent)
+
+          next if root.nil?
 
           question = Question.find_or_initialize_by(
             body: root[:body],

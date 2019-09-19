@@ -4,7 +4,9 @@ require_relative '../../lib/scraper'
 
 class Question < ApplicationRecord
   def related
-    @related ||= Question.find(related_question_ids)
+    return [] if related_question_ids.nil?
+
+    @related ||= Question.where(id: related_question_ids)
   end
 
   def crawl
