@@ -13,12 +13,12 @@ gem 'rack-cors'
 gem 'rails', '~> 6.0.0'
 gem 'graphql'
 gem 'graphiql-rails'
+gem 'mechanize'
 
 group :development, :test do
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'byebug'
-  gem 'mechanize'
 end
 
 group :development do
