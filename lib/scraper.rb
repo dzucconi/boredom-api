@@ -14,10 +14,12 @@ IS_QUESTION = lambda { |link|
     link.text =~ /\?$/ &&
     link.text !~ /quora/i &&
     link.text !~ %r{/math} &&
-    link.href !~ %r{/wiki|unanswered|topic|undefined|coding|conctact|about|careers|profile/}
+    link.href !~ %r{/wiki|unanswered|topic|undefined|coding|conctact|about|careers|profile|answer/}
 }
 
 module Scraper
+  IS_QUESTION = IS_QUESTION
+
   class << self
     def parse(url)
       Addressable::URI.parse(url)
