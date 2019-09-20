@@ -19,5 +19,13 @@ module Types
       scope = scope.where(crawled: crawled) unless crawled.nil?
       scope.order(sort_by).limit(limit)
     end
+
+    field :question, QuestionType, null: false do
+      argument :id, ID, required: true
+    end
+
+    def question(id: nil)
+      id == id.to_i.to_s ? Question.find(id) : Question.where(slug: id).first
+    end
   end
 end
