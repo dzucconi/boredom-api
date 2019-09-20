@@ -6,7 +6,7 @@ module Types
     field :slug, String, null: false
     field :body, String, null: false
 
-    field :related, [Types::QuestionType], null: true do
+    field :related, [Types::QuestionType], null: false do
       argument :limit, Integer, required: false
       argument :sort_by, SortType, required: false
       argument :crawled, Boolean, required: false
