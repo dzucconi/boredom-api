@@ -2,9 +2,9 @@
 
 module Types
   class QuestionType < Types::BaseObject
-    field :id, Integer, null: true
-    field :slug, String, null: true
-    field :body, String, null: true
+    field :id, Integer, null: false
+    field :slug, String, null: false
+    field :body, String, null: false
 
     field :related, [Types::QuestionType], null: true do
       argument :limit, Integer, required: false
