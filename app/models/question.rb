@@ -4,8 +4,6 @@ require_relative '../../lib/scraper'
 
 class Question < ApplicationRecord
   def related
-    return [] if related_question_ids.nil?
-
     @related ||= Question.where(id: related_question_ids)
   end
 
