@@ -5,6 +5,7 @@ module Types
     field :id, Integer, null: false
     field :slug, String, null: false
     field :body, String, null: false
+    field :is_crawled, Boolean, null: false, method: :crawled?
 
     field :related, [Types::QuestionType], null: false do
       argument :limit, Integer, required: false
