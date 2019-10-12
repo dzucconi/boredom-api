@@ -17,4 +17,9 @@ class ScraperTest < ActiveSupport::TestCase
     link = Link.new('/What-does-your-countrys-currency-look-like-answer', '...?')
     assert(Scraper::IS_QUESTION.call(link))
   end
+
+  test "returns false when there is *any* additional slash in the URL" do
+    link = Link.new('/laksjdfj/q/What-does-your-countrys-currency-look-like-answer', '...?')
+    assert(!Scraper::IS_QUESTION.call(link))
+  end
 end

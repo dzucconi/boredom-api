@@ -11,10 +11,11 @@ IS_QUESTION = lambda { |link|
   parsed = Scraper.parse(link.href)
 
   (parsed.host.blank? || (parsed.host == 'www.quora.com' || parsed.host == 'en.quora.com')) &&
-    link.text =~ /\?$/ &&
+    !!(link.text =~ /\?$/) &&
     link.text !~ /quora/i &&
     link.text !~ %r{/math} &&
-    link.href !~ %r{/wiki|unanswered|topic|undefined|coding|conctact|about|careers|profile|answer/}
+    link.href !~ %r{/wiki|unanswered|topic|undefined|coding|conctact|about|careers|profile|answer/} &&
+    !(link.href.scan("/").size > 1)
 }
 
 module Scraper
