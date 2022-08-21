@@ -3,14 +3,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '3.1.2'
 
 gem 'addressable'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rack-cors'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.1.0'
 gem 'graphql'
 gem 'graphiql-rails'
 gem 'mechanize'
