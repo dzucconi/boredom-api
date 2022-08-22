@@ -27,5 +27,13 @@ module Types
     def question(id: nil)
       id == id.to_i.to_s ? Question.find(id) : Question.where(slug: id).first
     end
+
+    field :search, [QuestionType], null: false do
+      argument :query, String, required: true
+    end
+
+    def search(query:)
+      Question.where('lower(body) like ?', "%#{query.downcase}%")
+    end
   end
 end

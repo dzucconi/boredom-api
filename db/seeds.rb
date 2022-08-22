@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Question.create!(
+  body: "History of Apple Inc.: In iPhone advertisements, why is the time always set to 9:42 a.m. on the clock?",
+  slug: "History-of-Apple-Inc-In-iPhone-advertisements-why-is-the-time-always-set-to-9-42-a-m-on-the-clock",
+  url: "https://en.quora.com/History-of-Apple-Inc-In-iPhone-advertisements-why-is-the-time-always-set-to-9-42-a-m-on-the-clock"
+)
+
+Question.create!(
+  body: "Could I get into military being on anxiety medication?",    
+  slug: "Could-I-get-into-military-being-on-anxiety-medication",
+  url: "https://en.quora.com/Could-I-get-into-military-being-on-anxiety-medication"
+)
