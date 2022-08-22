@@ -30,10 +30,12 @@ module Types
 
     field :search, [QuestionType], null: false do
       argument :query, String, required: true
+      argument :sort_by, SortType, required: false
+      argument :limit, Integer, required: false
     end
 
-    def search(query:)
-      Question.where('lower(body) like ?', "%#{query.downcase}%")
+    def search(query:, limit: 50, sort_by: 'RANDOM()')
+      Question.where('lower(body) like ?', "%#{query.downcase}%").sort_by(sort_by).limit(limit)
     end
   end
 end
