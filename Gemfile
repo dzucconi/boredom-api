@@ -8,7 +8,7 @@ ruby '3.1.2'
 gem 'addressable'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pg'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.0'
 gem 'rack-cors'
 gem 'rails', '~> 6.1.0'
 gem 'graphql'
