@@ -10,7 +10,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rack-cors'
-gem 'rails', '~> 6.1.0'
+gem 'rails', '~> 7.2.0'
 gem 'graphql'
 gem 'graphiql-rails'
 gem 'mechanize'
