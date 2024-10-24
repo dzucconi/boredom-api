@@ -63,6 +63,7 @@ GEM
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
+    base64 (0.2.0)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -74,12 +75,15 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.11.0)
     ffi (1.15.5)
+    fiber-storage (1.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     graphiql-rails (1.8.0)
       railties
       sprockets-rails
-    graphql (2.0.13)
+    graphql (2.3.19)
+      base64
+      fiber-storage
     http-cookie (1.0.5)
       domain_name (~> 0.5)
     i18n (1.12.0)
